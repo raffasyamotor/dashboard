@@ -3,192 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Raffasya Motor - Jual Beli Mobil Bekas Berkualitas</title>
+  <title>Raffasya Motor</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
     body {
-      font-family: 'Poppins', sans-serif;
-      scroll-behavior: smooth;
+      font-family: 'Inter', sans-serif;
     }
-    .hero-bg {
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-      url('https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1631&q=80');
+
+    .bg-hero {
+      background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1618331646400-80f98c51d674?auto=format&fit=crop&w=1600&q=80');
       background-size: cover;
       background-position: center;
     }
-    .car-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    .car-card {
-      transition: all 0.3s ease;
-    }
-    .feature-icon {
-      transition: all 0.3s ease;
-    }
-    .feature-card:hover .feature-icon {
-      transform: scale(1.1);
-      color: #3b82f6;
-    }
-    .testimonial-card {
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    }
   </style>
 </head>
-<body>
+<body class="text-gray-800">
 
-  <!-- Navigation -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
-      <div class="flex items-center">
-        <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
-        <span class="text-xl font-bold text-gray-800">RAFFASYA MOTOR</span>
+  <!-- Navbar -->
+  <nav class="bg-white fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold text-blue-600 flex items-center gap-2">
+        <i class="fas fa-car"></i> Raffasya Motor
       </div>
-      <div class="hidden md:flex items-center space-x-8">
-        <a href="#home" class="text-gray-800 hover:text-blue-600 font-medium">Beranda</a>
-        <a href="#cars" class="text-gray-800 hover:text-blue-600 font-medium">Mobil</a>
-        <a href="#features" class="text-gray-800 hover:text-blue-600 font-medium">Keunggulan</a>
-        <a href="#testimonials" class="text-gray-800 hover:text-blue-600 font-medium">Testimoni</a>
-        <a href="#contact" class="text-gray-800 hover:text-blue-600 font-medium">Kontak</a>
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#home" class="hover:text-blue-600">Beranda</a>
+        <a href="#cars" class="hover:text-blue-600">Mobil</a>
+        <a href="#features" class="hover:text-blue-600">Keunggulan</a>
+        <a href="#testimonials" class="hover:text-blue-600">Testimoni</a>
+        <a href="#contact" class="hover:text-blue-600">Kontak</a>
       </div>
-      <div class="md:hidden flex items-center">
-        <button class="mobile-menu-button text-gray-700 hover:text-blue-600">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-    <div class="mobile-menu hidden md:hidden bg-white shadow-md px-4 pb-4">
-      <a href="#home" class="block py-2 text-gray-800 hover:text-blue-600">Beranda</a>
-      <a href="#cars" class="block py-2 text-gray-800 hover:text-blue-600">Mobil</a>
-      <a href="#features" class="block py-2 text-gray-800 hover:text-blue-600">Keunggulan</a>
-      <a href="#testimonials" class="block py-2 text-gray-800 hover:text-blue-600">Testimoni</a>
-      <a href="#contact" class="block py-2 text-gray-800 hover:text-blue-600">Kontak</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero-bg text-white py-20 md:py-32">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Temukan Mobil Bekas Berkualitas di <span class="text-blue-400">Raffasya Motor</span></h1>
-      <p class="text-xl mb-8">Kami menyediakan mobil bekas terbaik dengan inspeksi ketat dan garansi terjamin. Transaksi aman dan terpercaya.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="#cars" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">Lihat Koleksi Mobil</a>
-        <a href="#contact" class="border-2 border-white hover:bg-white hover:text-gray-900 text-white font-bold py-3 px-6 rounded-lg transition">Hubungi Kami</a>
+  <!-- Hero -->
+  <section id="home" class="bg-hero h-screen flex items-center justify-center text-white text-center px-6">
+    <div class="max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Temukan Mobil Impian Anda di <span class="text-blue-400">Raffasya Motor</span></h1>
+      <p class="text-lg md:text-xl mb-6">Jual beli mobil bekas berkualitas, dengan garansi dan layanan terbaik untuk Anda.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#cars" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">Lihat Mobil</a>
+        <a href="#contact" class="border border-white text-white hover:bg-white hover:text-gray-900 px-6 py-3 rounded-lg font-semibold transition">Hubungi Kami</a>
       </div>
     </div>
   </section>
 
   <!-- Features -->
-  <section id="features" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-4 text-gray-800">Kenapa Memilih Raffasya Motor?</h2>
-      <p class="text-gray-600 mb-12">Kami memberikan pengalaman terbaik dalam membeli mobil bekas dengan berbagai keunggulan.</p>
+  <section id="features" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Kenapa Memilih Kami?</h2>
+      <p class="text-gray-600 mb-12 max-w-xl mx-auto">Kami memberikan layanan profesional dan mobil dengan standar kualitas tinggi.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
-          <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-shield-alt"></i></div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Garansi Terjamin</h3>
-          <p class="text-gray-600">Garansi mesin & transmisi selama 1 tahun.</p>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Garansi 1 Tahun</h3>
+          <p class="text-sm text-gray-500">Mesin & transmisi bergaransi untuk mobil yang layak pakai.</p>
         </div>
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
-          <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-search-dollar"></i></div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Inspeksi Ketat</h3>
-          <p class="text-gray-600">150+ poin pengecekan mobil secara detail.</p>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-search-dollar"></i></div>
+          <h3 class="font-semibold text-lg mb-2">150+ Poin Inspeksi</h3>
+          <p class="text-sm text-gray-500">Setiap unit kami periksa menyeluruh agar Anda tenang berkendara.</p>
         </div>
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
-          <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-hand-holding-usd"></i></div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Harga Kompetitif</h3>
-          <p class="text-gray-600">Harga bersaing dengan kualitas terjamin.</p>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-tags"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Harga Kompetitif</h3>
+          <p class="text-sm text-gray-500">Harga bersaing, layanan memuaskan.</p>
         </div>
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
-          <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-exchange-alt"></i></div>
-          <h3 class="text-xl font-semibold text-gray-800 mb-2">Tukar Tambah</h3>
-          <p class="text-gray-600">Program tukar tambah dengan nilai terbaik.</p>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <div class="text-blue-600 text-4xl mb-4"><i class="fas fa-exchange-alt"></i></div>
+          <h3 class="font-semibold text-lg mb-2">Tukar Tambah</h3>
+          <p class="text-sm text-gray-500">Trade-in mobil lama Anda dengan harga terbaik.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Cars -->
-  <section id="cars" class="py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">Koleksi Mobil Terbaru</h2>
-      <p class="text-gray-600 mb-12">Temukan mobil bekas berkualitas dengan berbagai pilihan merek dan tipe.</p>
+  <section id="cars" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Koleksi Mobil</h2>
+      <p class="text-gray-600 mb-12 max-w-xl mx-auto">Pilih dari berbagai merek dan tipe mobil yang tersedia.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Repeatable Card Template -->
-        <!-- Toyota Fortuner -->
-        <div class="car-card bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1470&q=80" class="w-full h-48 object-cover" alt="Toyota Fortuner">
-          <div class="p-4">
-            <h3 class="text-xl font-semibold text-gray-800">Toyota Fortuner 2020</h3>
-            <p class="text-gray-600 text-sm mt-1"><i class="fas fa-road mr-1"></i> 25.000 km</p>
-            <div class="flex justify-between items-center my-2">
-              <span class="text-blue-600 font-bold text-lg">Rp 450.000.000</span>
-              <span class="text-sm bg-green-100 text-green-800 px-2 py-1 rounded">Tersedia</span>
+        <!-- Mobil 1 -->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=1470&q=80" class="w-full h-48 object-cover">
+          <div class="p-4 text-left">
+            <h3 class="font-bold text-lg">Toyota Fortuner 2020</h3>
+            <p class="text-gray-500 text-sm mb-2">25.000 km | Diesel | Automatic</p>
+            <div class="flex justify-between items-center">
+              <span class="text-blue-600 font-semibold">Rp 450jt</span>
+              <button class="bg-blue-600 text-white px-4 py-1 text-sm rounded hover:bg-blue-700 transition">Detail</button>
             </div>
-            <div class="flex justify-between text-sm text-gray-500 mb-4">
-              <span><i class="fas fa-gas-pump mr-1"></i> Diesel</span>
-              <span><i class="fas fa-cogs mr-1"></i> Automatic</span>
-              <span><i class="fas fa-user-friends mr-1"></i> 7 Seater</span>
-            </div>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition">
-              <i class="fas fa-car mr-2"></i> Detail Mobil
-            </button>
           </div>
         </div>
-        <!-- Tambahkan mobil lainnya sesuai kebutuhan -->
+        <!-- Tambahkan mobil lainnya jika perlu -->
       </div>
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">Apa Kata Pelanggan Kami?</h2>
-      <p class="text-gray-600 mb-12">Testimoni jujur dari pelanggan yang sudah membeli mobil di Raffasya Motor.</p>
+  <section id="testimonials" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Testimoni Pelanggan</h2>
+      <p class="text-gray-600 mb-12">Kepuasan pelanggan adalah prioritas kami.</p>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="testimonial-card bg-white p-6 rounded-lg">
-          <div class="flex items-center mb-4">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h4 class="font-semibold text-gray-800">Andi Wijaya</h4>
-              <div class="flex text-yellow-400"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="w-12 h-12 rounded-full" />
+            <div class="text-left">
+              <p class="font-bold">Andi Wijaya</p>
+              <div class="text-yellow-400 text-sm">
+                ★★★★★
+              </div>
             </div>
           </div>
-          <p class="text-gray-600 italic">"Sangat puas dengan pelayanan Raffasya Motor. Mobil yang saya beli kondisinya sangat baik dan sesuai deskripsi."</p>
+          <p class="text-gray-600 text-sm italic">"Mobil yang saya beli di sini benar-benar sesuai deskripsi. Layanannya juga sangat membantu."</p>
         </div>
-        <!-- Tambahkan testimonial lainnya -->
+        <!-- Tambahkan testimoni lain -->
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto text-center px-4">
-      <h2 class="text-3xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
-      <p class="text-gray-600 mb-8">Punya pertanyaan? Hubungi kami melalui WhatsApp atau kunjungi showroom kami.</p>
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-4">Hubungi Kami</h2>
+      <p class="text-gray-600 mb-6">Tertarik dengan salah satu mobil kami? Hubungi tim kami sekarang!</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="https://wa.me/6281234567890" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg">
+        <a href="https://wa.me/6281234567890" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold">
           <i class="fab fa-whatsapp mr-2"></i> Chat via WhatsApp
         </a>
-        <a href="https://goo.gl/maps/example" target="_blank" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg">
-          <i class="fas fa-map-marker-alt mr-2"></i> Lihat Lokasi
+        <a href="https://goo.gl/maps/example" target="_blank" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold">
+          <i class="fas fa-map-marker-alt mr-2"></i> Kunjungi Showroom
         </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; 2025 <strong>Raffasya Motor</strong>. Semua Hak Dilindungi.</p>
+  <footer class="bg-gray-800 text-white py-6 text-center text-sm">
+    &copy; 2025 Raffasya Motor. All rights reserved.
   </footer>
 
-  <!-- Script -->
-  <script>
-    const btn = document.querySelector(".mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
-    btn.addEventListener("click", () => menu.classList.toggle("hidden"));
-  </script>
 </body>
 </html>
