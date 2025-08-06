@@ -117,7 +117,8 @@
                 <h2 class="text-3xl font-bold text-gray-800 mb-4">Koleksi Mobil Terbaru</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Temukan mobil bekas berkualitas dengan berbagai pilihan merek dan tipe.</p>
             </div>
-            
+
+           <div id="mobilList" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Car 1 -->
                 <div class="car-card bg-white rounded-lg overflow-hidden shadow-md">
@@ -275,6 +276,189 @@
   </footer>
 
   <!-- Script -->
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const apiURL = "https://sheetdb.io/api/v1/rxfo08i7f6pyp"; // sementara masih pakai SheetDB
+    let allData = [], filteredData = [];
+    let currentSort = "", searchText = "";
+    let perLoad = 6, currentIndex = 0, isLoading = false;
+
+    const listContainer = document.getElementById("mobilList");
+    const loading = document.getElementById("loading");
+    const endMessage = document.getElementById("endMessage");
+    const searchInput = document.getElementById("searchInput");
+    const sortPrice = document.getElementById("sortPrice");
+    const resetBtn = document.getElementById("resetBtn");
+    const detailModal = document.getElementById("detailModal");
+    const modalContent = document.getElementById("modalContent");
+
+    function formatRupiah(str) {
+      if (!str) return "Rp -";
+      let cleaned = (str + "").replace(/[^\d]/g, "");
+      let number = parseInt(cleaned);
+      if (isNaN(number)) return "Rp -";
+      return "Rp " + number.toLocaleString("id-ID");
+    }
+
+    function applyFilter() {
+      filteredData = allData.filter(item => {
+        const merk = item["MERK/TYPE MOBIL"]?.toLowerCase() || "";
+        const nopol = item["NOPOL"]?.toLowerCase() || "";
+        return merk.includes(searchText) || nopol.includes(searchText);
+      });
+
+      if (currentSort) {
+        filteredData.sort((a, b) => {
+          const hargaA = parseInt((a['HARGA JUAL (OTR)'] || "0").replace(/[^\d]/g, "")) || 0;
+          const hargaB = parseInt((b['HARGA JUAL (OTR)'] || "0").replace(/[^\d]/g, "")) || 0;
+          return currentSort === "asc" ? hargaA - hargaB : hargaB - hargaA;
+        });
+      }
+
+      listContainer.innerHTML = "";
+      currentIndex = 0;
+      loadMore();
+    }
+
+    function loadMore() {
+      if (isLoading) return;
+      isLoading = true;
+      loading.classList.remove("hidden");
+
+      setTimeout(() => {
+        const nextData = filteredData.slice(currentIndex, currentIndex + perLoad);
+        nextData.forEach((item) => {
+          const card = document.createElement("div");
+          card.className = "bg-white shadow rounded overflow-hidden cursor-pointer hover:scale-105 transition";
+          card.onclick = () => showModal(item);
+
+          const photo = item["LINK PHOTO"] || "https://via.placeholder.com/400x300?text=No+Image";
+          card.innerHTML = `
+            <img src="${photo}" loading="lazy" class="w-full h-48 object-cover" />
+            <div class="p-4">
+              <h2 class="text-lg font-semibold">${item['MERK/TYPE MOBIL'] || '-'}</h2>
+              <p class="text-sm text-gray-600">Nopol: ${item['NOPOL'] || '-'}</p><br>
+            <!-- <p class="text-sm text-gray-600">Bulan: ${item['BULAN'] || '-'}</p>  -->
+           <p class="text-sm text-gray-600"><strong>MUF</strong><br>${item['MUF'] || '-'}</p>
+               <p class="text-sm text-gray-600"><strong>ADIRA</strong><br>${item['ADIRA'] || '-'}</p>
+                <p class="text-sm text-gray-600"><strong>OTO</strong><br>${item['OTO'] || '-'}</p>
+                 <p class="text-sm text-gray-600"><strong>CIMB NIAGA</strong><br>${item['CIMB NIAGA'] || '-'}</p>
+              <p class="text-blue-700 font-bold mt-2">${formatRupiah(item['HARGA JUAL (OTR)']) || '-'} (OTR)  <span class="
+  inline-block px-3 py-1 text-sm font-semibold rounded-full 
+  ${item['STATUS'] === 'READY' ? 'bg-green-100 text-green-700' : 
+    item['STATUS'] === 'BOOKING' ? 'bg-blue-100 text-blue-700' : 
+    item['STATUS'] === 'TERJUAL' ? 'bg-red-100 text-red-700' : 
+    'bg-gray-100 text-gray-600'}
+">
+  ${item['STATUS'] || '-'}
+</span></p>
+           
+
+
+            </div>
+          `;
+          listContainer.appendChild(card);
+        });
+
+        currentIndex += perLoad;
+        isLoading = false;
+        loading.classList.add("hidden");
+
+        if (currentIndex >= filteredData.length) {
+          endMessage.classList.remove("hidden");
+        }
+      }, 400);
+    }
+
+  function showModal(item) {
+  const photos = [];
+
+  // Tampilkan LINK PHOTO (utama)
+  if (item["LINK PHOTO"]) {
+    photos.push(`
+      <div class="swiper-slide flex justify-center items-center bg-gray-50">
+        <img src="${item["LINK PHOTO"]}" class="object-contain max-h-[350px] w-auto mx-auto" />
+      </div>
+    `);
+  }
+
+  // Tambahkan PHOTO 1–10 jika ada
+  for (let j = 1; j <= 10; j++) {
+    const key = `PHOTO ${j}`;
+    if (item[key]) {
+      photos.push(`
+        <div class="swiper-slide flex justify-center items-center bg-gray-50">
+          <img src="${item[key]}" class="object-contain max-h-[350px] w-auto mx-auto" />
+        </div>
+      `);
+    }
+  }
+
+      const salesWA = item['SALES WA'] || '6281234567890';
+    modalContent.innerHTML = `
+  <div class="relative">
+    <button id="closeModalInner" class="absolute top-2 right-2 z-50 text-white bg-black bg-opacity-50 rounded-full w-8 h-8 flex items-center justify-center text-xl">&times;</button>
+    <div class="swiper galeri">
+      <div class="swiper-wrapper">${photos.join("")}</div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="p-4">
+      <h2 class="text-xl font-semibold">${item['MERK/TYPE MOBIL']}</h2>
+      <p class="text-sm text-gray-600">Nopol: ${item['NOPOL']}</p>
+      <p class="text-sm text-gray-600">Bulan: ${item['BULAN']}</p>
+      <p class="text-blue-700 font-bold mt-2 text-lg">${formatRupiah(item['HARGA JUAL (OTR)'])} (OTR)</p>
+  <!--    <div class="text-center mt-4 space-y-2">
+        <p class="text-sm text-gray-600"><strong>MUF</strong><br>${item['MUF'] || '-'}</p>
+        <p class="text-sm text-gray-600"><strong>ADIRA</strong><br>${item['ADIRA'] || '-'}</p>
+        <p class="text-sm text-gray-600"><strong>OTO</strong><br>${item['OTO'] || '-'}</p>
+        <p class="text-sm text-gray-600"><strong>CIMB NIAGA</strong><br>${item['CIMB NIAGA'] || '-'}</p>
+      </div> -->
+    </div>
+  </div>
+`;
+
+
+// Tombol X
+document.getElementById("closeModalInner").onclick = () => {
+  detailModal.classList.add("hidden");
+  detailModal.classList.remove("flex");
+};
+
+// Klik area luar modal
+detailModal.onclick = (e) => {
+  if (e.target === detailModal) {
+    detailModal.classList.add("hidden");
+    detailModal.classList.remove("flex");
+  }
+};
+
+  new Swiper('.galeri', { slidesPerView: 1, loop: true, pagination: { el: '.swiper-pagination', clickable: true } });
+      detailModal.classList.remove("hidden");
+      detailModal.classList.add("flex");
+    }
+
+    window.addEventListener('scroll', () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 300) {
+        if (currentIndex < filteredData.length) loadMore();
+      }
+    });
+
+    searchInput.addEventListener("input", () => { searchText = searchInput.value.toLowerCase(); endMessage.classList.add("hidden"); applyFilter(); });
+    sortPrice.addEventListener("change", () => { currentSort = sortPrice.value; endMessage.classList.add("hidden"); applyFilter(); });
+    resetBtn.addEventListener("click", () => { searchText = ""; currentSort = ""; searchInput.value = ""; sortPrice.value = ""; endMessage.classList.add("hidden"); applyFilter(); });
+
+   async function fetchData() {
+  loading.classList.remove("hidden");
+  const res = await fetch(apiURL);
+  allData = (await res.json()).reverse(); // <- balik urutan data
+  applyFilter();
+  loading.classList.add("hidden");
+}
+
+
+    fetchData();
+  </script>
   <script>
     const btn = document.querySelector(".mobile-menu-button");
     const menu = document.querySelector(".mobile-menu");
