@@ -209,7 +209,6 @@ async function tampilkanGaleriMobil() {
   try {
     const res = await fetch(galeriEndpoint);
     const data = await res.json();
-    console.log(data); // debug
 
     data.forEach(mobil => {
       const card = document.createElement("div");
@@ -230,10 +229,11 @@ async function tampilkanGaleriMobil() {
       galeriContainer.appendChild(card);
     });
   } catch (err) {
-    console.error("Gagal memuat data:", err);
     galeriContainer.innerHTML = `<p class="text-red-500">Gagal memuat data mobil.</p>`;
+    console.error(err);
   }
 }
+
 
 
 tampilkanGaleriMobil();
