@@ -209,19 +209,20 @@ async function tampilkanGaleriMobil() {
   try {
     const res = await fetch(galeriEndpoint);
     const data = await res.json();
+    console.log(data); // debug
 
     data.forEach(mobil => {
       const card = document.createElement("div");
       card.className = "bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300";
 
       card.innerHTML = `
-        <img src="${mobil.LINK PHOTO}" alt="${mobil.MERK/TYPE MOBIL}" class="w-full h-52 object-cover">
+        <img src="${mobil['LINK PHOTO']}" alt="${mobil['MERK/TYPE MOBIL']}" class="w-full h-52 object-cover">
         <div class="p-4">
-          <h3 class="text-xl font-semibold mb-1">${mobil.MERK/TYPE MOBIL}</h3>
-          <p class="text-gray-600">${mobil.NOPOL}</p>
+          <h3 class="text-xl font-semibold mb-1">${mobil['MERK/TYPE MOBIL']}</h3>
+          <p class="text-gray-600">${mobil['NOPOL']}</p>
           <p class="text-blue-600 font-bold mt-2">${formatRupiah(mobil['HARGA JUAL (OTR)']) || '-'}</p>
-          <span class="inline-block mt-2 px-2 py-1 text-xs font-medium rounded-full ${mobil.STATUS === 'READY' ? 'bg-green-200 text-green-800' : 'bg-yellow-200 text-yellow-800'}">
-            ${mobil.STATUS}
+          <span class="inline-block mt-2 px-2 py-1 text-xs font-medium rounded-full ${mobil['STATUS'] === 'READY' ? 'bg-green-200 text-green-800' : 'bg-yellow-200 text-yellow-800'}">
+            ${mobil['STATUS']}
           </span>
         </div>
       `;
@@ -229,9 +230,11 @@ async function tampilkanGaleriMobil() {
       galeriContainer.appendChild(card);
     });
   } catch (err) {
+    console.error("Gagal memuat data:", err);
     galeriContainer.innerHTML = `<p class="text-red-500">Gagal memuat data mobil.</p>`;
   }
 }
+
 
 tampilkanGaleriMobil();
 </script>
