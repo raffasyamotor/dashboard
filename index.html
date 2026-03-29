@@ -106,7 +106,7 @@
     </div>
   </section>
 
-  <!-- Section Tentang Kami (SANGAT PENTING UNTUK ADSENSE) -->
+  <!-- Section Tentang Kami -->
   <section id="about" class="py-16 bg-white border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex flex-col md:flex-row gap-12 items-center">
@@ -165,7 +165,7 @@
     <div class="text-center mb-10">
       <h2 class="text-3xl font-bold text-gray-800 uppercase tracking-wide">Katalog Mobil Ready Stock</h2>
       <div class="w-20 h-1 bg-blue-600 mx-auto mt-4 mb-4"></div>
-      <p class="text-gray-600 max-w-2xl mx-auto">Telusuri koleksi kendaraan terbaik kami. Data di bawah ini diperbarui secara real-time. Gunakan fitur pencarian untuk menemukan mobil impian keluarga Anda.</p>
+      <p class="text-gray-600 max-w-2xl mx-auto">Telusuri koleksi kendaraan terbaik kami. Data di bawah ini diperbarui secara otomatis. Gunakan fitur pencarian untuk menemukan mobil impian keluarga Anda.</p>
     </div>
     
     <div class="max-w-xl mx-auto mb-12 relative group">
@@ -195,7 +195,7 @@
     </div>
   </section>
 
-  <!-- Section Artikel & Tips Edukasi (PENTING UNTUK ADSENSE) -->
+  <!-- Section Artikel & Tips Edukasi -->
   <section id="articles" class="py-16 bg-white border-t border-gray-200">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-12">
@@ -241,7 +241,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-- Kontak & Marketing -->
   <section id="contact" class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
@@ -320,7 +320,7 @@
         </ul>
       </div>
 
-      <!-- Legal & Info (Sangat Penting untuk AdSense) -->
+      <!-- Legal & Info -->
       <div>
         <h4 class="text-white font-bold mb-6 uppercase text-sm tracking-widest">Pusat Bantuan & Legal</h4>
         <ul class="space-y-3 text-sm text-gray-400">
@@ -388,6 +388,10 @@
     const scrollTopBtn = document.getElementById("scrollTopBtn");
     const marketingList = document.getElementById("marketingList");
 
+    // State Variables (Ditambahkan fitur LocalStorage untuk Cache)
+    let allCars = JSON.parse(localStorage.getItem("raffasya_cars_cache")) || [];
+    let isFetching = false;
+
     // Injeksi Daftar Marketing WhatsApp
     function injectMarketing() {
       marketingNumbers.forEach((num, index) => {
@@ -426,8 +430,6 @@
 
     scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    let allCars = [];
-
     // Format harga ke mata uang Rupiah
     function formatRupiahWithUp(str) {
       if (!str) return "Tanya Harga";
@@ -436,9 +438,8 @@
       return "Rp " + (price + 5000000).toLocaleString("id-ID");
     }
 
-    // Render mobil status ready
+    // Render mobil status ready (Dioptimasi jadi jauh lebih cepat)
     function renderReadyCars(filterText = "") {
-      galeriContainer.innerHTML = "";
       const keyword = filterText.toLowerCase().trim();
       const readyCars = allCars.filter(m => {
         const s = (m['STATUS'] || '').trim().toUpperCase();
@@ -450,10 +451,11 @@
         return;
       }
 
+      // Optimasi DOM: Membuat string HTML sekaligus (mempercepat proses render berkali-kali lipat)
+      let htmlString = "";
       readyCars.forEach(m => {
-        const card = document.createElement("div");
-        card.className = "car-card bg-white shadow-md rounded-2xl overflow-hidden border border-gray-100 flex flex-col h-full";
-        card.innerHTML = `
+        htmlString += `
+        <div class="car-card bg-white shadow-md rounded-2xl overflow-hidden border border-gray-100 flex flex-col h-full">
           <div class="relative overflow-hidden group h-64 bg-gray-200">
             <img src="${m['LINK PHOTO']}" alt="Foto Mobil ${m['MERK/TYPE MOBIL']}" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/600x400?text=Foto+Menyusul'">
             <span class="absolute top-4 left-4 px-4 py-1.5 text-[10px] font-extrabold rounded-full bg-green-100 text-green-700 shadow-lg border border-green-200">${m['STATUS']}</span>
@@ -474,40 +476,80 @@
                </a>
             </div>
           </div>
-        `;
-        galeriContainer.appendChild(card);
+        </div>`;
       });
+      galeriContainer.innerHTML = htmlString;
     }
 
-    // Ambil data dari Google Apps Script
-    async function initApp() {
+    // Render Unit Sold Out (Dioptimasi)
+    function renderSoldCars() {
+      const sold = allCars.filter(m => ['TERJUAL', 'SOLD OUT', 'SOLD'].includes((m['STATUS'] || '').trim().toUpperCase()));
+      
+      if (sold.length > 0) {
+        soldSection.classList.remove('hidden');
+        let htmlString = "";
+        sold.forEach(m => {
+          htmlString += `
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 group relative">
+            <div class="relative h-32 md:h-44 overflow-hidden bg-gray-100">
+              <img src="${m['LINK PHOTO']}" alt="${m['MERK/TYPE MOBIL']}" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition duration-700" onerror="this.src='https://placehold.co/600x400?text=Sold'">
+              <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="bg-red-600 text-white text-xs font-black px-4 py-1.5 transform -rotate-12 uppercase tracking-widest shadow-lg border border-red-400">SOLD OUT</div>
+              </div>
+            </div>
+            <div class="p-3 text-center text-[11px] font-bold text-gray-700 truncate" title="${m['MERK/TYPE MOBIL']}">${m['MERK/TYPE MOBIL']}</div>
+          </div>`;
+        });
+        soldContainer.innerHTML = htmlString;
+      } else {
+        soldSection.classList.add('hidden');
+      }
+    }
+
+    // Fungsi Fetch dan Autosync
+    async function fetchAndSyncData(isBackgroundSync = false) {
+      if (isFetching) return; // Mencegah pemanggilan ganda jika loading belum selesai
+      isFetching = true;
+
       try {
         const res = await fetch(galeriEndpoint);
-        allCars = await res.json();
-        renderReadyCars();
+        const newData = await res.json();
         
-        // Filter unit terjual
-        const sold = allCars.filter(m => ['TERJUAL', 'SOLD OUT', 'SOLD'].includes((m['STATUS'] || '').trim().toUpperCase()));
-        
-        if (sold.length > 0) {
-          soldSection.classList.remove('hidden');
-          soldContainer.innerHTML = "";
-          sold.forEach(m => {
-            const el = document.createElement("div");
-            el.className = "bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200 group relative";
-            el.innerHTML = `<div class="relative h-32 md:h-44 overflow-hidden bg-gray-100">
-                <img src="${m['LINK PHOTO']}" alt="${m['MERK/TYPE MOBIL']}" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition duration-700" onerror="this.src='https://placehold.co/600x400?text=Sold'">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                  <div class="bg-red-600 text-white text-xs font-black px-4 py-1.5 transform -rotate-12 uppercase tracking-widest shadow-lg border border-red-400">SOLD OUT</div>
-                </div>
-              </div><div class="p-3 text-center text-[11px] font-bold text-gray-700 truncate" title="${m['MERK/TYPE MOBIL']}">${m['MERK/TYPE MOBIL']}</div>`;
-            soldContainer.appendChild(el);
-          });
+        // Cek apakah ada perubahan data (Autosync logic)
+        if (JSON.stringify(newData) !== JSON.stringify(allCars)) {
+          allCars = newData;
+          // Simpan ke cache browser agar load berikutnya instan
+          localStorage.setItem("raffasya_cars_cache", JSON.stringify(allCars));
+          
+          // Re-render hanya jika ada update, text pencarian tetap aman
+          renderReadyCars(searchInput.value);
+          renderSoldCars();
         }
       } catch (e) { 
-        console.error("Gagal mengambil data katalog:", e);
-        galeriContainer.innerHTML = `<div class="col-span-full text-center py-10 text-red-500 font-medium">Maaf, terjadi kesalahan saat memuat data. Pastikan koneksi internet Anda stabil atau muat ulang halaman.</div>`;
+        console.error("Gagal sinkronisasi data katalog:", e);
+        if (!isBackgroundSync && allCars.length === 0) {
+          galeriContainer.innerHTML = `<div class="col-span-full text-center py-10 text-red-500 font-medium">Maaf, terjadi kesalahan saat memuat data. Pastikan koneksi internet Anda stabil atau muat ulang halaman.</div>`;
+        }
+      } finally {
+        isFetching = false;
       }
+    }
+
+    // Inisialisasi Aplikasi
+    function initApp() {
+      // 1. Tampilkan data dari cache secara instan (jika ada)
+      if (allCars.length > 0) {
+        renderReadyCars(searchInput.value);
+        renderSoldCars();
+      }
+      
+      // 2. Tarik data terbaru ke server di latar belakang
+      fetchAndSyncData(false);
+
+      // 3. Autosync: Tarik data secara diam-diam setiap 60 detik tanpa refresh web
+      setInterval(() => {
+        fetchAndSyncData(true);
+      }, 60000); 
     }
 
     // Event listener untuk pencarian
@@ -516,7 +558,7 @@
     // Toggle mobile menu
     document.querySelector(".mobile-menu-button").onclick = () => document.querySelector(".mobile-menu").classList.toggle("hidden");
     
-    // Inisialisasi Aplikasi
+    // Mulai Aplikasi
     initApp();
   </script>
 </body>
