@@ -37,20 +37,20 @@
     }
   </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
   <!-- Navigation -->
   <nav class="bg-white shadow-lg sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
       <div class="flex items-center">
         <i class="fas fa-car text-blue-600 text-2xl mr-2"></i>
-        <span class="text-xl font-bold text-gray-800">RAFFASYA MOTOR SUBANG</span>
+        <span class="text-xl font-bold text-gray-800 uppercase tracking-tighter">Raffasya Motor Subang</span>
       </div>
       <div class="hidden md:flex items-center space-x-8">
         <a href="#home" class="text-gray-800 hover:text-blue-600 font-medium">Beranda</a>
-        <a href="#galeriMobil" class="text-gray-800 hover:text-blue-600 font-medium">Mobil</a>
+        <a href="#galeriMobil" class="text-gray-800 hover:text-blue-600 font-medium">Mobil Ready</a>
         <a href="#features" class="text-gray-800 hover:text-blue-600 font-medium">Keunggulan</a>
-        <a href="#testimonials" class="text-gray-800 hover:text-blue-600 font-medium">Testimoni</a>
+        <a href="#soldOut" class="text-gray-800 hover:text-blue-600 font-medium">Unit Terjual</a>
         <a href="#contact" class="text-gray-800 hover:text-blue-600 font-medium">Kontak</a>
       </div>
       <div class="md:hidden flex items-center">
@@ -61,9 +61,9 @@
     </div>
     <div class="mobile-menu hidden md:hidden bg-white shadow-md px-4 pb-4">
       <a href="#home" class="block py-2 text-gray-800 hover:text-blue-600">Beranda</a>
-      <a href="#galeriMobil" class="block py-2 text-gray-800 hover:text-blue-600">Mobil</a>
+      <a href="#galeriMobil" class="block py-2 text-gray-800 hover:text-blue-600">Mobil Ready</a>
       <a href="#features" class="block py-2 text-gray-800 hover:text-blue-600">Keunggulan</a>
-      <a href="#testimonials" class="block py-2 text-gray-800 hover:text-blue-600">Testimoni</a>
+      <a href="#soldOut" class="block py-2 text-gray-800 hover:text-blue-600">Unit Terjual</a>
       <a href="#contact" class="block py-2 text-gray-800 hover:text-blue-600">Kontak</a>
     </div>
   </nav>
@@ -81,161 +81,173 @@
   </section>
 
   <!-- Features -->
-  <section id="features" class="py-16 bg-gray-50">
+  <section id="features" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold mb-4 text-gray-800">Kenapa Memilih Raffasya Motor?</h2>
       <p class="text-gray-600 mb-12">Kami memberikan pengalaman terbaik dalam membeli mobil bekas dengan berbagai keunggulan.</p>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
+        <div class="feature-card bg-gray-50 p-6 rounded-lg text-center shadow-sm border border-gray-100">
           <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-shield-alt"></i></div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Garansi Terjamin</h3>
-          <p class="text-gray-600">Garansi mesin & transmisi selama 1 tahun.</p>
+          <p class="text-gray-600 text-sm">Garansi mesin & transmisi selama 1 tahun.</p>
         </div>
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
+        <div class="feature-card bg-gray-50 p-6 rounded-lg text-center shadow-sm border border-gray-100">
           <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-search-dollar"></i></div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Inspeksi Ketat</h3>
-          <p class="text-gray-600">150+ poin pengecekan mobil secara detail.</p>
+          <p class="text-gray-600 text-sm">150+ poin pengecekan mobil secara detail.</p>
         </div>
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
+        <div class="feature-card bg-gray-50 p-6 rounded-lg text-center shadow-sm border border-gray-100">
           <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-hand-holding-usd"></i></div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Harga Kompetitif</h3>
-          <p class="text-gray-600">Harga bersaing dengan kualitas terjamin.</p>
+          <p class="text-gray-600 text-sm">Harga bersaing dengan kualitas terjamin.</p>
         </div>
-        <div class="feature-card bg-white p-6 rounded-lg text-center shadow-md">
+        <div class="feature-card bg-gray-50 p-6 rounded-lg text-center shadow-sm border border-gray-100">
           <div class="feature-icon text-4xl text-blue-600 mb-4"><i class="fas fa-exchange-alt"></i></div>
           <h3 class="text-xl font-semibold text-gray-800 mb-2">Tukar Tambah</h3>
-          <p class="text-gray-600">Program tukar tambah dengan nilai terbaik.</p>
+          <p class="text-gray-600 text-sm">Program tukar tambah dengan nilai terbaik.</p>
         </div>
       </div>
     </div>
   </section>
 
-     <!-- Cars Section -->
- <!-- Galeri Mobil -->
-<section id="galeriMobil" class="py-10 px-4 max-w-7xl mx-auto">
-  <h2 class="text-2xl font-bold mb-6 text-center">Galeri Mobil Bekas</h2>
-  <div id="galeriContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <!-- Kartu mobil akan dimuat di sini -->
-  </div>
-</section>
-
- <!-- Testimonials -->
-<section id="testimonials" class="py-16 bg-gray-50">
-  <div class="max-w-7xl mx-auto px-4 text-center">
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">Apa Kata Pelanggan Kami?</h2>
-    <p class="text-gray-600 mb-12">Testimoni jujur dari pelanggan yang sudah membeli mobil di Raffasya Motor.</p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Testimoni 1 -->
-      <div class="testimonial-card bg-white p-6 rounded-lg">
-        <div class="flex items-center mb-4">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4">
-          <div>
-            <h4 class="font-semibold text-gray-800">Andi Wijaya</h4>
-            <div class="flex text-yellow-400">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <p class="text-gray-600 italic">"Sangat puas dengan pelayanan Raffasya Motor. Mobil yang saya beli kondisinya sangat baik dan sesuai deskripsi."</p>
-      </div>
-
-      <!-- Testimoni 2 -->
-      <div class="testimonial-card bg-white p-6 rounded-lg">
-        <div class="flex items-center mb-4">
-          <img src="https://randomuser.me/api/portraits/men/64.jpg" class="w-12 h-12 rounded-full mr-4">
-          <div>
-            <h4 class="font-semibold text-gray-800">Budi Santoso</h4>
-            <div class="flex text-yellow-400">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <p class="text-gray-600 italic">"Harga bersahabat, mobil mulus, dan proses cepat! Sukses terus Raffasya Motor."</p>
-      </div>
-
-      <!-- Testimoni 3 -->
-      <div class="testimonial-card bg-white p-6 rounded-lg">
-        <div class="flex items-center mb-4">
-          <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-12 h-12 rounded-full mr-4">
-          <div>
-            <h4 class="font-semibold text-gray-800">Rina Amelia</h4>
-            <div class="flex text-yellow-400">
-              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-          </div>
-        </div>
-        <p class="text-gray-600 italic">"Pelayanan ramah dan unit mobil sangat sesuai. Recommended banget beli mobil bekas di sini!"</p>
+  <!-- Galeri Mobil Ready -->
+  <section id="galeriMobil" class="py-16 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-gray-800">Unit Ready Stock</h2>
+      <p class="text-gray-600">Pilih mobil impian Anda yang siap dibawa pulang hari ini.</p>
+    </div>
+    <div id="galeriContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Loading State -->
+      <div class="col-span-full text-center py-10">
+        <i class="fas fa-circle-notch fa-spin text-4xl text-blue-600"></i>
+        <p class="mt-4 text-gray-500">Memuat data mobil...</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- Section Unit Terjual -->
+  <section id="soldOut" class="py-16 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-gray-800 uppercase italic">Sold Out!</h2>
+        <p class="text-gray-600">Unit-unit berkualitas yang telah menemukan pemilik barunya.</p>
+      </div>
+      <div id="soldContainer" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <!-- Mobil Terjual akan dimuat di sini -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Apa Kata Pelanggan Kami?</h2>
+      <p class="text-gray-600 mb-12">Testimoni jujur dari pelanggan yang sudah membeli mobil di Raffasya Motor.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <div class="testimonial-card bg-gray-50 p-6 rounded-lg border border-gray-100">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full mr-4" alt="User">
+            <div>
+              <h4 class="font-semibold text-gray-800">Andi Wijaya</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 italic text-sm">"Sangat puas dengan pelayanan Raffasya Motor. Mobil yang saya beli kondisinya sangat baik dan sesuai deskripsi."</p>
+        </div>
+        <div class="testimonial-card bg-gray-50 p-6 rounded-lg border border-gray-100">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/men/64.jpg" class="w-12 h-12 rounded-full mr-4" alt="User">
+            <div>
+              <h4 class="font-semibold text-gray-800">Budi Santoso</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 italic text-sm">"Harga bersahabat, mobil mulus, dan proses cepat! Sukses terus Raffasya Motor."</p>
+        </div>
+        <div class="testimonial-card bg-gray-50 p-6 rounded-lg border border-gray-100">
+          <div class="flex items-center mb-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-12 h-12 rounded-full mr-4" alt="User">
+            <div>
+              <h4 class="font-semibold text-gray-800">Rina Amelia</h4>
+              <div class="flex text-yellow-400 text-sm">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600 italic text-sm">"Pelayanan ramah dan unit mobil sangat sesuai. Recommended banget beli mobil bekas di sini!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact -->
-<!-- Contact -->
-<section id="contact" class="py-16 bg-white">
-  <div class="max-w-3xl mx-auto text-center px-4">
-    <h2 class="text-3xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
-    <p class="text-gray-600 mb-8">
-      Punya pertanyaan? Hubungi kami melalui WhatsApp atau kunjungi showroom kami.
-    </p>
-    <!-- Tombol WhatsApp -->
-    <div class="flex flex-col sm:flex-row justify-center gap-4">
-      <a href="https://wa.me/6289653222531" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg">
-        <i class="fab fa-whatsapp mr-2"></i> Chat via WhatsApp
-      </a>
-    </div>
-
-    <!-- Lokasi RAFFASYA MOTOR 1 -->
-    <div class="mb-8">
-      <h3 class="text-xl font-semibold text-gray-700 mb-2">RAFFASYA MOTOR 1</h3>
-      <div class="w-full aspect-video rounded-lg overflow-hidden">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.082018927747!2d107.7866201756779!3d-6.511302393481111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693b145f294937%3A0x4669bb2a1e042532!2sRAFFASYA%20MOTOR%20SUBANG%201!5e0!3m2!1sid!2sid!4v1750663808892!5m2!1sid!2sid" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-full"
-        ></iframe>
+  <section id="contact" class="py-16 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4">Hubungi Kami</h2>
+      <p class="text-gray-600 mb-8">Punya pertanyaan? Hubungi kami melalui WhatsApp atau kunjungi showroom kami.</p>
+      <div class="mb-12">
+        <a href="https://wa.me/6289653222531" target="_blank" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105">
+          <i class="fab fa-whatsapp text-2xl mr-3"></i> Tanya Stok Via WhatsApp
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800 mb-3"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> RAFFASYA MOTOR 1</h3>
+          <div class="w-full aspect-video rounded-lg overflow-hidden border border-gray-100">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.082018927747!2d107.7866201756779!3d-6.511302393481111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693b145f294937%3A0x4669bb2a1e042532!2sRAFFASYA%20MOTOR%20SUBANG%201!5e0!3m2!1sid!2sid!4v1750663808892!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+          <h3 class="text-lg font-bold text-gray-800 mb-3"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i> RAFFASYA MOTOR 2</h3>
+          <div class="w-full aspect-video rounded-lg overflow-hidden border border-gray-100">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.788952829195!2d107.7359528756782!3d-6.548310593444682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693d00556f5a09%3A0xa1dbd614946b034f!2sRAFFASYA%20MOTOR%20SUBANG%202!5e0!3m2!1sid!2sid!4v1754455582478!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Lokasi RAFFASYA MOTOR 2 -->
-    <div class="mb-8">
-      <h3 class="text-xl font-semibold text-gray-700 mb-2">RAFFASYA MOTOR 2</h3>
-      <div class="w-full aspect-video rounded-lg overflow-hidden">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.788952829195!2d107.7359528756782!3d-6.548310593444682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693d00556f5a09%3A0xa1dbd614946b034f!2sRAFFASYA%20MOTOR%20SUBANG%202!5e0!3m2!1sid!2sid!4v1754455582478!5m2!1sid!2sid" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-full"
-        ></iframe>
-      </div>
-    </div>
-
-    
-  </div>
-</section>
-
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6 text-center">
-    <p>&copy; 2025 <strong>Raffasya Motor Subang</strong>. Semua Hak Dilindungi.</p>
+  <footer class="bg-gray-900 text-white py-10 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+      <div>
+        <h4 class="text-xl font-bold mb-4">Raffasya Motor</h4>
+        <p class="text-gray-400 text-sm">Dealer mobil bekas terpercaya di Subang. Kami mengedepankan kualitas unit dan kepuasan pelanggan.</p>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-4">Tautan</h4>
+        <ul class="text-gray-400 text-sm space-y-2">
+          <li><a href="#home" class="hover:text-white">Beranda</a></li>
+          <li><a href="#galeriMobil" class="hover:text-white">Mobil Ready</a></li>
+          <li><a href="#soldOut" class="hover:text-white">Unit Terjual</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xl font-bold mb-4">Ikuti Kami</h4>
+        <div class="flex space-x-4">
+          <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-gray-800 text-center text-gray-500 text-xs">
+      <p>&copy; 2025 <strong>Raffasya Motor Subang</strong>. Semua Hak Dilindungi.</p>
+    </div>
   </footer>
 
-<script>
-const galeriEndpoint = "https://script.google.com/macros/s/AKfycbyr5QyBndUGqeyKgpwRwDDp8g7LnBbvMdpEGadYPWHRtlph9MmwZXgNwP487NtwioZM/exec";
-const galeriContainer = document.getElementById("galeriContainer");
+  <script>
+    const galeriEndpoint = "https://script.google.com/macros/s/AKfycbyr5QyBndUGqeyKgpwRwDDp8g7LnBbvMdpEGadYPWHRtlph9MmwZXgNwP487NtwioZM/exec";
+    const galeriContainer = document.getElementById("galeriContainer");
+    const soldContainer = document.getElementById("soldContainer");
+    const soldSection = document.getElementById("soldOut");
 
-  function formatRupiah(str) {
+    function formatRupiah(str) {
       if (!str) return "Rp -";
       let cleaned = (str + "").replace(/[^\d]/g, "");
       let number = parseInt(cleaned);
@@ -243,43 +255,100 @@ const galeriContainer = document.getElementById("galeriContainer");
       return "Rp " + number.toLocaleString("id-ID");
     }
 
-async function tampilkanGaleriMobil() {
-  try {
-    const res = await fetch(galeriEndpoint);
-    const data = await res.json();
+    async function tampilkanMobil() {
+      try {
+        const res = await fetch(galeriEndpoint);
+        const data = await res.json();
+        
+        galeriContainer.innerHTML = "";
+        soldContainer.innerHTML = "";
 
-    data.forEach(mobil => {
-      const card = document.createElement("div");
-      card.className = "bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition duration-300";
+        let countReady = 0;
+        let countSold = 0;
 
-      card.innerHTML = `
-        <img src="${mobil['LINK PHOTO']}" alt="${mobil['MERK/TYPE MOBIL']}" class="w-full h-52 object-cover">
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-1">${mobil['MERK/TYPE MOBIL']}</h3>
-          <p class="text-gray-600">${mobil['NOPOL']}</p>
-          <p class="text-blue-600 font-bold mt-2">${formatRupiah(mobil['HARGA JUAL (OTR)']) || '-'}</p>
-          <span class="inline-block mt-2 px-2 py-1 text-xs font-medium rounded-full ${mobil['STATUS'] === 'READY' ? 'bg-green-200 text-green-800' : 'bg-yellow-200 text-yellow-800'}">
-            ${mobil['STATUS']}
-          </span>
-        </div>
-      `;
+        data.forEach(mobil => {
+          const rawStatus = mobil['STATUS'] || '';
+          const status = rawStatus.toString().trim().toUpperCase();
+          const warna = mobil['WARNA'] || '-';
+          
+          if (status === 'READY' || status === 'COMING SOON') {
+            countReady++;
+            const card = document.createElement("div");
+            card.className = "car-card bg-white shadow-md rounded-xl overflow-hidden border border-gray-100 flex flex-col h-full";
+            
+            const statusBadgeColor = status === 'READY' ? 'bg-green-100 text-green-700' : 'bg-blue-100 text-blue-700';
 
-      galeriContainer.appendChild(card);
+            card.innerHTML = `
+              <div class="relative">
+                <img src="${mobil['LINK PHOTO']}" alt="${mobil['MERK/TYPE MOBIL']}" class="w-full h-56 object-cover bg-gray-200">
+                <span class="absolute top-3 left-3 px-3 py-1 text-xs font-bold rounded-full ${statusBadgeColor} shadow-sm">
+                  ${status}
+                </span>
+              </div>
+              <div class="p-5 flex flex-col flex-grow">
+                <h3 class="text-xl font-bold text-gray-800 mb-1 leading-tight">${mobil['MERK/TYPE MOBIL']}</h3>
+                <div class="flex flex-col gap-1 mb-3">
+                  <p class="text-gray-500 text-sm"><i class="fas fa-id-card mr-2 w-4"></i> ${mobil['NOPOL'] || '-'}</p>
+                  <p class="text-gray-500 text-sm"><i class="fas fa-palette mr-2 w-4"></i> ${warna}</p>
+                </div>
+                <div class="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
+                   <div>
+                      <p class="text-xs text-gray-400 uppercase font-semibold">Harga OTR</p>
+                      <p class="text-blue-600 font-extrabold text-lg">${formatRupiah(mobil['HARGA JUAL (OTR)'])}</p>
+                   </div>
+                   <a href="https://wa.me/6289653222531?text=Halo%20Raffasya%20Motor,%20saya%20tertarik%20dengan%20${encodeURIComponent(mobil['MERK/TYPE MOBIL'])}" target="_blank" class="bg-blue-50 text-blue-600 p-2 rounded-lg hover:bg-blue-600 hover:text-white transition">
+                      <i class="fab fa-whatsapp text-xl"></i>
+                   </a>
+                </div>
+              </div>
+            `;
+            galeriContainer.appendChild(card);
+          } 
+          else if (status === 'TERJUAL' || status === 'SOLD OUT' || status === 'SOLD') {
+            countSold++;
+            const soldItem = document.createElement("div");
+            soldItem.className = "bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200 group";
+            
+            soldItem.innerHTML = `
+              <div class="relative h-32 md:h-40 overflow-hidden">
+                <img src="${mobil['LINK PHOTO']}" alt="Terjual" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-500">
+                <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                  <div class="bg-red-600 text-white text-[10px] md:text-xs font-bold px-3 py-1 rounded shadow-lg transform -rotate-12 uppercase tracking-widest">SOLD</div>
+                </div>
+              </div>
+              <div class="p-2 text-center bg-gray-50">
+                <p class="text-[10px] md:text-xs font-bold text-gray-600 truncate uppercase">${mobil['MERK/TYPE MOBIL']}</p>
+              </div>
+            `;
+            soldContainer.appendChild(soldItem);
+          }
+        });
+
+        if (countReady === 0) {
+          galeriContainer.innerHTML = `<p class="col-span-full text-center text-gray-500 py-10 italic">Maaf, saat ini belum ada unit yang tersedia.</p>`;
+        }
+        
+        if (countSold === 0) {
+          soldSection.classList.add('hidden');
+        } else {
+          soldSection.classList.remove('hidden');
+        }
+
+      } catch (err) {
+        galeriContainer.innerHTML = `<div class="col-span-full text-center text-red-500 py-10"><i class="fas fa-exclamation-triangle text-2xl"></i><p class="mt-2">Gagal memuat data. Mohon pastikan Nama Kolom di Spreadsheet sudah benar.</p></div>`;
+        console.error("Error Fetching Data:", err);
+      }
+    }
+
+    const btnMenu = document.querySelector(".mobile-menu-button");
+    const menuDiv = document.querySelector(".mobile-menu");
+    btnMenu.addEventListener("click", () => menuDiv.classList.toggle("hidden"));
+
+    document.querySelectorAll(".mobile-menu a").forEach(link => {
+      link.addEventListener("click", () => menuDiv.classList.add("hidden"));
     });
-  } catch (err) {
-    galeriContainer.innerHTML = `<p class="text-red-500">Gagal memuat data mobil.</p>`;
-    console.error(err);
-  }
-}
 
-
-
-tampilkanGaleriMobil();
-</script>
-  <script>
-    const btn = document.querySelector(".mobile-menu-button");
-    const menu = document.querySelector(".mobile-menu");
-    btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+    tampilkanMobil();
   </script>
 </body>
 </html>
