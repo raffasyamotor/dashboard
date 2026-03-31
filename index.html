@@ -438,12 +438,7 @@
       return "Rp " + (price + 5000000).toLocaleString("id-ID");
     }
 
-  // format ribuan
-     formatRibuan(v) {
-            if (!v || String(v).trim() === "" || String(v).trim() === "-") return "-";
-            const num = parseInt(String(v).replace(/[^\d]/g, ""), 10);
-            return isNaN(num) ? v : num.toLocaleString("id-ID");
-        }
+ 
 
     // Render mobil status ready (Dioptimasi jadi jauh lebih cepat)
     function renderReadyCars(filterText = "") {
@@ -472,7 +467,7 @@
             <div class="grid grid-cols-2 gap-3 text-xs text-gray-600 mb-6 bg-gray-50 p-3 rounded-lg border border-gray-100">
               <span class="flex items-center"><i class="fas fa-id-card mr-2 text-blue-500 w-4"></i>${m['NOPOL'] || 'N/A'}</span>
               <span class="flex items-center"><i class="fas fa-palette mr-2 text-blue-500 w-4"></i>${m['WARNA'] || 'N/A'}</span>
-               <span class="flex items-center"><i class="fas fa-gauge mr-2 text-blue-500 w-4"></i>${formatRibuan(m['KILOMETER'] || 'N/A'} (on going)</span>
+               <span class="flex items-center"><i class="fas fa-gauge mr-2 text-blue-500 w-4"></i>${m['KILOMETER'] || 'N/A'} (on going)</span>
             </div>
             <div class="mt-auto pt-5 border-t border-gray-100 flex justify-between items-center">
                <div class="flex flex-col">
